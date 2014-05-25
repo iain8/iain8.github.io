@@ -38,6 +38,32 @@
 		];
 
 		iso.add(Shape.Prism(new Point(-7, -7, 0), 25, 25, 0), new Color());
+
+		iso.add(letterN, new Color(140, 150, 0));
+
+		// I
+		iso.add([
+		  Shape.Prism(new Point(3, 2, step - 1), 1, 2, step + 3)
+		], new Color(50, 60, 150));
+
+		// A
+		iso.add([
+		  Shape.Prism(new Point(1, 2, step - 1), 1, 2, step + 3),
+		  Shape.Prism(new Point(0, 2, step + 1), 1, 2, step + 1),
+		  Shape.Prism(new Point(-1, 2, step - 1), 1, 2, step + 3)
+		], new Color(60, 150, 50));
+
+		// I
+		iso.add([
+		  Shape.Prism(new Point(-3, 2, step - 1), 1, 2, step + 3)
+		], new Color(160, 60, 50));
+
+		  if (step < 1) {
+		    step = step + 0.01;
+		  }
+		}
+
+		setInterval(scene, 1000 / 30);
 		</script>
 	</body>
 </html>
