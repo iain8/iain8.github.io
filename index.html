@@ -28,38 +28,38 @@
 		var Point = Isomer.Point;
 		var Color = Isomer.Color;
 
-		var step = -5;
+		var step = -3;
 
 		function scene() {
 		  var letterN = [
-		  Shape.Prism(new Point(7, 2, step - 1), 1, 2, step + 3),
-		  Shape.Prism(new Point(6, 2, step + 2), 1, 2, step),
-		  Shape.Prism(new Point(5, 2, step - 1), 1, 2, step + 3)
+		  Shape.Prism(new Point(7, 2, 0), 1, 2, step + 3),
+		    Shape.Prism(new Point(6, 2, step < 1 ? 99 : 3), 1, 2, step),
+		  Shape.Prism(new Point(5, 2, 0), 1, 2, step + 3)
 		];
 
-		iso.add(Shape.Prism(new Point(-7, -7, 0), 25, 25, 0), new Color(255, 255, 255));
+		iso.add(Shape.Prism(new Point(-7, -7, 0), 25, 25, 10), new Color(255, 255, 255));
 
 		iso.add(letterN, new Color(140, 150, 0));
 
 		// I
 		iso.add([
-		  Shape.Prism(new Point(3, 2, step - 1), 1, 2, step + 3)
+		  Shape.Prism(new Point(3, 2, 0), 1, 2, step + 3)
 		], new Color(50, 60, 150));
 
 		// A
 		iso.add([
-		  Shape.Prism(new Point(1, 2, step - 1), 1, 2, step + 3),
-		  Shape.Prism(new Point(0, 2, step + 1), 1, 2, step + 1),
-		  Shape.Prism(new Point(-1, 2, step - 1), 1, 2, step + 3)
+		  Shape.Prism(new Point(1, 2, 0), 1, 2, step + 3),
+		  Shape.Prism(new Point(0, 2, step < 0 ? 99 : 2), 1, 2, step + 1),
+		  Shape.Prism(new Point(-1, 2, 0), 1, 2, step + 3)
 		], new Color(60, 150, 50));
 
 		// I
 		iso.add([
-		  Shape.Prism(new Point(-3, 2, step - 1), 1, 2, step + 3)
+		  Shape.Prism(new Point(-3, 2, 0), 1, 2, step + 3)
 		], new Color(160, 60, 50));
 
 		  if (step < 1) {
-		    step = step + 0.01;
+		    step = step + 0.03;
 		  }
 		}
 
