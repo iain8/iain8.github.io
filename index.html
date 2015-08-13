@@ -66,7 +66,29 @@
 				<br>
 
 				<h3>Blog</h3>
+
+				<ul id="blog-list">
+					<li>or go to <a href="http://github.com/iain8">all the posts</a></li>
+				</ul>
 			</div>
 		</div>
+
+		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script>
+		function formatLink(post) {
+			var title = post['type'] === 'photo' ? '[photo post]' : post['regular-title'];
+			title = new Date(post['unix-timestamp'] * 1000).toDateString() + ' - ' + title;
+
+			return '<li><a href="' + post.url + '">' + title + '</a></li>';
+		};
+
+		$(document).ready(function() {
+		    $.getJSON('http://iain8.tumblr.com/api/read/json?callback=?', function(response) {
+		    	$('#blog-list').prepend(formatLink(response.posts[0]));
+		    	$('#blog-list').prepend(formatLink(response.posts[1]));
+		    	$('#blog-list').prepend(formatLink(response.posts[2]));
+		    });
+		});
+		</script>
 	</body>
 </html>
