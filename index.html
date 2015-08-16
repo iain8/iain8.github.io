@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>yup</title>
+		<title>space, the iain frontier</title>
 
 		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +59,7 @@
 
 				<ul>
 					<li><a href="http://the.iain.space/drumbox01">drumbox01</a> - a drum machine in the browser, powered by javascript and a vague approximation of funky funk</li>
-					<li><a href="http://github.com/iain8/cityblock">cityblock</a> - procedurally generated, oddly coloured city block</li>
+					<li><a href="http://the.iain.space/cityblock">cityblock</a> - procedurally generated, oddly coloured city block (WIP)</li>
 					<li><a href="http://compomics.github.io">compomics docs</a> - documentation site for projects completely generated from github readme and wiki pages as part of continuous integration suite. uses jekyll a lot.</li>
 				</ul>
 
@@ -76,7 +76,15 @@
 		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script>
 		function formatLink(post) {
-			var title = post['type'] === 'photo' ? '[photo post]' : post['regular-title'];
+			console.log(post);
+			var title;
+
+			if (post['type'] === 'photo') {
+				title = $('<div/>').html(post['photo-caption']).text();
+			} else {
+				title = post['regular-title'];
+			}
+
 			title = new Date(post['unix-timestamp'] * 1000).toDateString() + ' - ' + title;
 
 			return '<li><a href="' + post.url + '">' + title + '</a></li>';
