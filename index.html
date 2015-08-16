@@ -67,16 +67,13 @@
 
 				<h3>Blog</h3>
 
-				<ul id="blog-list">
-					<li>or go to <a href="http://github.com/iain8">all the posts</a></li>
-				</ul>
+				<ul id="blog-list"></ul>
 			</div>
 		</div>
 
 		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script>
 		function formatLink(post) {
-			console.log(post);
 			var title;
 
 			if (post['type'] === 'photo') {
@@ -92,9 +89,10 @@
 
 		$(document).ready(function() {
 		    $.getJSON('http://iain8.tumblr.com/api/read/json?callback=?', function(response) {
-		    	$('#blog-list').prepend(formatLink(response.posts[0]));
-		    	$('#blog-list').prepend(formatLink(response.posts[1]));
-		    	$('#blog-list').prepend(formatLink(response.posts[2]));
+		    	$('#blog-list').append(formatLink(response.posts[0]));
+		    	$('#blog-list').append(formatLink(response.posts[1]));
+		    	$('#blog-list').append(formatLink(response.posts[2]));
+		    	$('#blog-list').append('<li>or go to <a href="http://github.com/iain8">all the posts</a></li>');
 		    });
 		});
 		</script>
