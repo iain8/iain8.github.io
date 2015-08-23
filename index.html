@@ -77,7 +77,9 @@
 			var title;
 
 			if (post['type'] === 'photo') {
-				title = $('<div/>').html(post['photo-caption']).text();
+				title = $('<div/>').html(post['photo-caption']).text() + ' [image]';
+			} else if (post['type'] === 'link') {
+				title = $('<div/>').html(post['link-description']).text() + ' [link]';
 			} else {
 				title = post['regular-title'];
 			}
