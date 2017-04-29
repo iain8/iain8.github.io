@@ -1,102 +1,64 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>space, the iain frontier</title>
+		<title>iain</title>
 
 		<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-
-		<style>
-		body {
-			margin-top: 10px;
-		}
-
-		a, p, h3, li {
-			font-family: consolas, monaco, monospace;
-		}
-
-		#centre {
-			margin: 0 auto;
-		}
-
-		#main-menu {
-			width: 100%;
-		}
-
-		#main-menu .pure-menu-item {
-			float: right;
-		}
-		</style>
+		<link href="site.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<div class="pure-g">
-			<div id="centre" class="pure-u-1-2">
-				<div class="pure-menu pure-menu-horizontal">
-					<ul id="main-menu" class="pure-menu-list">
-					<a href="/" class="pure-menu-heading pure-menu-link">an iain space</a>
-						<li class="pure-menu-item">
-							<a href="http://github.com/iain8" class="pure-menu-link">Github</a>
-						</li>
-						<li class="pure-menu-item">
-							<a href="http://blog.iain.space" class="pure-menu-link">Blog</a>
-						</li>
-						<li class="pure-menu-item">
-							<a href="/" class="pure-menu-link">Home</a>
-						</li>
-					</ul>
-					<hr>
+		<div class="top-bar">
+			&nbsp;
+		</div>
+
+		<div class="centre">
+			<div class="menu-bar">
+				<div class="brand">
+					/iain
 				</div>
 
-				<h3>About</h3>
+				<div class="close">
+					X
+				</div>
+			</div>
 
-				<p>Web developer person, designs and makes web things (but NOT a spider).</p>
+
+			<div class="content">
+				<h3>> About</h3>
+
+				<p>Developer of web and otherwise</p>
 
 				<br>
 
-				<h3>Projects</h3>
+				<h3>> Recent Projects</h3>
 
 				<ul>
-					<li><a href="http://the.iain.space/drumbox01">drumbox01</a> - a drum machine in the browser, powered by javascript and a vague approximation of funky funk</li>
-					<li><a href="http://the.iain.space/cityblock">cityblock</a> - procedurally generated, oddly coloured city block (WIP)</li>
-					<li><a href="http://compomics.github.io">compomics docs</a> - documentation site for projects completely generated from github readme and wiki pages as part of continuous integration suite. uses jekyll a lot.</li>
+					<li>
+						<a href="http://jasmijndecuyper.com">jasmijndecuyper.com</a>
+						- a photo portfolio site
+					</li>
+					<li>
+						<a href="https://iain8.github.io/drumbox01">drumbox01</a>
+						- a drum machine in the browser
+					</li>
+					<li>
+						<a href="https://github.com/iain8/faderbar">faderbar</a>
+						- a taskbar app to automate fading out your system volume
+					</li>
+					<li>
+						<a href="https://github.com/iain8/content-tiles">content-tiles</a>
+						- tile some content without making it all misshapen
+					</li>
 				</ul>
 
 				<br>
 
-				<h3>Blog</h3>
+				<h3>> Links</h3>
 
-				<ul id="blog-list"></ul>
+				Find me on <a href="https://github.com/iain8">Github</a>.
 			</div>
 		</div>
-
-		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script>
-		function formatLink(post) {
-			var title;
-
-			if (post['type'] === 'photo') {
-				title = $('<div/>').html(post['photo-caption']).text() + ' [image]';
-			} else if (post['type'] === 'link') {
-				title = $('<div/>').html(post['link-description']).text() + ' [link]';
-			} else {
-				title = post['regular-title'];
-			}
-
-			title = new Date(post['unix-timestamp'] * 1000).toDateString() + ' - ' + title;
-
-			return '<li><a href="' + post.url + '">' + title + '</a></li>';
-		};
-
-		$(document).ready(function() {
-		    $.getJSON('http://iain8.tumblr.com/api/read/json?callback=?', function(response) {
-		    	$('#blog-list').append(formatLink(response.posts[0]));
-		    	$('#blog-list').append(formatLink(response.posts[1]));
-		    	$('#blog-list').append(formatLink(response.posts[2]));
-		    	$('#blog-list').append('<li>or go to <a href="http://github.com/iain8">all the posts</a></li>');
-		    });
-		});
-		</script>
 	</body>
 </html>

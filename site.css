@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "Atari";
+  src: url("AtariST8x16SystemFont.ttf");
+}
+
+html {
+  background: darkseagreen;
+}
+
+body {
+  font-family: "Atari", monospace;
+  margin: 0;
+}
+
+.top-bar {
+  background: white;
+  border-bottom: 1px solid black;
+}
+
+.centre {
+  background: white;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+  margin: 100px auto 0;
+  width: 50%;
+}
+
+.menu-bar {
+  background: repeating-linear-gradient(
+    180deg,
+    #fff,
+    #fff 10%,
+    #555 20%
+  );
+  border-bottom: 1px solid black;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+/* TODO: overlay vertical stripes to make dots */
+
+.menu-bar:after {
+  border-bottom: 1px solid black;
+  content: " ";
+  left: 0;
+  position: absolute;
+  top: 37px;
+  width: 100%;
+}
+
+.brand {
+  background: white;
+  display: inline;
+  padding: 0 10px;
+}
+
+.close {
+  background: white;
+  border-left: 1px solid black;
+  display: inline-block;
+  height: 18px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+}
+
+.content {
+  border-right: 1px solid black;
+  margin-right: 20px;
+  padding: 36px 10px 10px;
+}
+
+h3:first-of-type {
+  margin-top: 0;
+}
